@@ -1,0 +1,100 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <div class="main-detail">
+    <div class="container-detail">
+    <div class = "content-header">
+        <div n:block="title" class="header-tittle">Informácie o rezervácii</div>
+        {ifset $fileName}
+            <div class="pdf-content">
+                <span class="pdf-span">Pdf si stiahnete tu </span><a href="{$basePath}/customDocuments/{$fileName}" target="_blank"><i id="icon-pdf" class="far fa-file-pdf  fa-1x"></i></a>
+            </div>
+        {/ifset}
+    </div>
+    <div class="content-body">
+        <table class="table-sm table-detail">
+                            <tr>
+                                <td>Číslo rezervácie: </td>
+                                <td>{$bookedTicket->idBookedTicket}</td>
+                            </tr>
+                            <tr>
+                                <td>Dátum rezervovania: </td>
+                                <td>{$bookedTicket->createDate}</td>
+                            </tr>
+                            <tr>
+                                <td>Počet lístkov: </td>
+                                <td>{count($bookedTicket->ticket)}</td>
+                            </tr>
+                            <tr>
+                                <td>Celková suma: </td>
+                                <td>{$bookedTicket->totalSum}  €</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class ="h5 lab font-weight-bold">Informácie o zákazníkovi: </td>
+                            </tr>
+                            <tr>
+                                <td>Meno priezvisko: </td>
+                                <td>{$bookedTicket->customer->firstName} {$bookedTicket->customer->lastName}</td>
+                            </tr>
+                            <tr>
+                                <td>Telefónne číslo: </td>
+                                <td>{$bookedTicket->customer->phone}</td>
+                            </tr>
+                            <tr>
+                                <td>email: </td>
+                                <td>{$bookedTicket->customer->email}</td>
+                            </tr>
+                            <tr>
+                                <td>Adresa: </td>
+                                <td>{$bookedTicket->customer->street} {$bookedTicket->customer->houseNumber}, {$bookedTicket->customer->city}  {$bookedTicket->customer->zip}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class ="h5 lab font-weight-bold">Informácie o lístku: </td>
+                            </tr>
+                            {foreach $bookedTicket->ticket as $item}
+                                {if $iterator->first}
+                                    <tr>
+                                        <td>Inscenácia: </td>
+                                        <td>{$item->show->play->name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hrané: </td>
+                                        <td>{$item->show->timeFrom->format("d M Y, H:i")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trvanie: </td>
+                                        <td>{$item->show->play->duration} min.</td>
+                                    </tr>
+                                {/if}
+                                    <tr>
+                                        <td colspan="2" class ="lab font-weight-bold">Lístok č.{$iterator->counter}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Číslo sedadla: </td>
+                                        <td>{$item->seat->column}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rad: </td>
+                                        <td>{$item->seat->row}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kategória: </td>
+                                        <td>{$item->seat->seatType}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cena: </td>
+                                        <td>{$item->price} €</td>
+                                    </tr>
+                                {/foreach}
+                            </table>
+                            <div class="d-flex flex-row justify-content-between my-flex-container">
+                                <a id="btn-back" type="button" class="btn" n:href="Back!,  id=>$bookedTicket->idBookedTicket, status=>$bookedTicket->ticketStatus">Späť</a>
+                                {if $bookedTicket->ticketStatus === 1}
+                                    <a class="btn" id="btn-maroon" type="button" n:href="Confirm!,  id=>$bookedTicket->idBookedTicket">Prijať rezerváciu</a>
+                                {elseif $bookedTicket->ticketStatus === 2}
+                                    <a class="btn" id="btn-maroon" type="button" n:href="Storno!,  id=>$bookedTicket->idBookedTicket">Stornuj lístok</a>
+                                {/if}
+                            </div>
+        </div>
+    </div>
+    </div>
+{/block}

@@ -1,0 +1,119 @@
+{extends 'layoutDefault.latte'}
+{block searchNavHomepage}{/block}
+{block content}
+        <div class="row row-center" id="search-form">
+            <div class="col-8" id="search-col">
+                <div n:block="title" class = "content-header">Vyhľadanie sály</div>
+                <div class="container-form">
+                    <form n:name=searchLeaseHallForm class="form">
+                        <div class="form-row row-item">
+                            <div class="col-sm-2 col-form-label col-item">
+                                <label class="label-text" for="dateFrom" n:name=dateFrom>Čas od: </label>
+                            </div>
+                            <div class="form-group col col-sm-7 input-group input-item" id="datetimepicker1" data-target-input="nearest">
+                                <input type="text" autocomplete="off" id="dateFrom" class="form-control datetimepicker-input" data-target="#datetimepicker1" n:name=dateFrom />
+                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row row-item">
+                            <div class="col-sm-2 col-form-label col-item">
+                                <label class="label-text" for="dateTo" n:name=dateTo>Čas do: </label>
+                            </div>
+                            <div class="form-group col col-sm-7 input-group input-item date" id="datetimepicker2" data-target-input="nearest">
+                                <input type="text" autocomplete="off" id="dateTo" class="form-control datetimepicker-input" data-target="#datetimepicker2" n:name=dateTo />
+                                <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row row-item">
+                            <div class="col-sm-2 col-form-label  col-item">
+                                <label class="label-text" for="hallType" n:name=capacity>Kapacita: </label>
+                            </div>
+                            <div class="col-sm-7 input-item">
+                                {input capacity, class=>'form-control'}
+                            </div>
+                        </div>
+                        <div class="form-row row-item">
+                            <div class="col-sm-2 col-form-label  col-item"></div>
+                                <div class="col-sm-7 input-item"><input type="submit" id="btnMaroon" n:name=submit class="btn" value="Hľadať"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+        {if !empty($response)}
+            <div class="table-container">
+                <table class="table table" id="result-table">
+                    <thead class="table-info" id="result-head">
+                    <tr>
+                        <th scope="col">Názov</th>
+                        <th scope="col">Typ sály</th>
+                        <th scope="col">Kapacita</th>
+                        <th class="select" scope="col">Výber</th>
+                    </tr>
+                    </thead>
+                    <tbody id="result-body">
+                    {foreach $response as $res}
+                        <tr class="result-row">
+                            <td>{$res->name}</td>
+                            <td>{$res->hallType->getValue()}</td>
+                            <td>{$res->capacity}</td>
+                            <td><a class="icon-block" n:href="select!,  id=>$res->idHall, dateFrom => $dateFrom, dateTo => $dateTo "><i class="fas fa-check"></i></a></td>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+        {else}
+            <div class="alert alert-warning" role="alert">Vyhľadávacím kritériám nezodpovedajú žiadne výsledky</div>
+        {/if}
+    </div>
+    <script>
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+                icons: {
+                    time: 'far fa-clock',
+                    date: 'far fa-calendar',
+                    up: 'fas fa-arrow-up',
+                    down: 'fas fa-arrow-down',
+                    previous: 'fas fa-chevron-left',
+                    next: 'fas fa-chevron-right',
+                    today: 'far fa-calendar-check-o',
+                    clear: 'far fa-trash',
+                    close: 'far fa-times'
+                },
+                allowInputToggle: true,
+                minDate: moment(),
+                stepping: 15,
+                showClose: true,
+                format: 'DD.MM.YYYY HH:mm',
+            });
+        });
+
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                icons: {
+                    time: 'far fa-clock',
+                    date: 'far fa-calendar',
+                    up: 'fas fa-arrow-up',
+                    down: 'fas fa-arrow-down',
+                    previous: 'fas fa-chevron-left',
+                    next: 'fas fa-chevron-right',
+                    today: 'far fa-calendar-check-o',
+                    clear: 'far fa-trash',
+                    close: 'far fa-times'
+                },
+                allowInputToggle: true,
+                minDate: moment(),
+                stepping: 15,
+                showClose: true,
+                format: 'DD.MM.YYYY HH:mm',
+            });
+        });
+    </script>
+
+{/block}

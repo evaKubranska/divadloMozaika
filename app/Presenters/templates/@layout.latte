@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}DIVADLO MOZAIKA</title>
+
+	{include styles}
+	<link href="{$basePath}/yarn/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{$basePath}/yarn/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+	<link href="{$basePath}/yarn/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css" rel="stylesheet">
+	<link href="{$basePath}/styles/layout.css" rel="stylesheet">
+	<link href="{$basePath}/yarn/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+	<link href="{$basePath}/yarn/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700,900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+	{block scripts}
+		<script src="{$basePath}/yarn/jquery/dist/jquery.min.js"></script>
+		<script src="{$basePath}/yarn/nette.ajax.js/nette.ajax.js"></script>
+		<script src="{$basePath}/yarn/nette-forms/src/assets/netteForms.min.js"></script>
+		<script src="{$basePath}/yarn/jquery-ui.1.11.1/dist/jquery-ui.js"></script>
+		<script src="{$basePath}/yarn/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="{$basePath}/yarn/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{$basePath}/yarn/@fortawesome/fontawesome-free/js/all.min.js"></script>
+		<script src="{$basePath}/yarn/moment/moment.js"></script>
+		<script src="{$basePath}/yarn/moment-timezone/moment-timezone.js"></script>
+		<script src="{$basePath}/yarn/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js"></script>
+		<script src="{$basePath}/yarn/owl.carousel/dist/owl.carousel.min.js"></script>
+		<script src="{$basePath}/yarn/sweetalert2/dist/sweetalert2.js"></script>
+	{/block}
+	{include menu}
+	<div class="main-content">
+		<div id="alert-default" n:foreach="$flashes as $flash" n:class="alert, 'alert-' . $flash->type">{$flash->message}</div>
+		{include content}
+	</div>
+	<script>
+		$(function () {
+			$.nette.init();
+		});
+	</script>
+</body>
+</html>

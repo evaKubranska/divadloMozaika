@@ -1,0 +1,33 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <div n:block="title" class="content-header" >Vyhľadanie lístka</div>
+        {control searchTicketFrom}
+        {ifset $answear}
+            <div class="alert alert-warning" role="alert">{$answear}</div>
+        {elseifset $tickets}
+            <div class="container">
+                <div class="table-container">
+                    <table class="table table" id="result-table">
+                        <thead class="table-info" id="result-head">
+                        <tr>
+                            <th scope="col">Číslo lístka</th>
+                            <th scope="col">Meno</th>
+                            <th scope="col">Priezvisko</th>
+                            <th scope="col">Výber</th>
+                        </tr>
+                        </thead>
+                        <tbody id="result-body">
+                        {foreach $tickets as $ticket}
+                            <tr class="result-row">
+                                <td>{$ticket->idBookedTicket}</td>
+                                <td>{$ticket->customer->firstName}</td>
+                                <td>{$ticket->customer->lastName}</td>
+                                <td><a class="icon-center" n:href="select!,  id=>$ticket->idBookedTicket"><i class="fas fa-check"></i></a></td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    {/ifset}
+{/block}

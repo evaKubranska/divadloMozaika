@@ -1,0 +1,72 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <div class="main-detail">
+        <div class="container-detail">
+             <div class = "content-header">
+                 <span n:block="title" class="content-header">Detail žiadosti</span>
+             </div>
+                    <div class="content-body">
+                            <table class="table-sm table-detail">
+                                <tbody>
+                                <tr>
+                                    <td>Dátum od: </td>
+                                    <td>{$res->timeFrom}</td>
+                                </tr>
+                                <tr>
+                                    <td>Dátum do: </td>
+                                    <td>{$res->timeTo}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class ="h5 lab font-weight-bold">Informácie o sále</td>
+                                </tr>
+                                <tr>
+                                    <td>Názov sály: </td>
+                                    <td>{$res->hall->name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Typ sály: </td>
+                                    <td>{$res->hall->hallType}</td>
+                                </tr>
+                                <tr>
+                                    <td>Kapacita: </td>
+                                    <td>{$res->hall->capacity}</td>
+                                </tr>
+                                <tr>
+                                    <td> Popis: </td>
+                                    <td>{$res->hall->description}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class ="h5 lab font-weight-bold">Informácie o zákazníkovi</td>
+                                </tr>
+                                <tr>
+                                    <td>Meno priezvisko: </td>
+                                    <td>{$res->customer->firstName} {$res->customer->lastName}</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefónne číslo:  </td>
+                                    <td>{$res->customer->phone}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email: </td>
+                                    <td>{$res->customer->email}</td>
+                                </tr>
+                                <tr>
+                                    <td>Adresa: </td>
+                                    <td>{$res->customer->street} {$res->customer->houseNumber}, {$res->customer->city} {$res->customer->zip}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class ="h5 lab font-weight-bold">Dôvod prenájmu: </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" >{$res->description}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="d-flex flex-row justify-content-between my-flex-container">
+                                <a id="btn-back" type="button" class="btn"   n:href="Cancel!,  id=>$res->idRent ">Zamietnuť rezerváciu</a>
+                                <a class="btn" id="btn-maroon" type="button" n:href="Confirm!,  id=>$res->idRent">Prijať rezerváciu</a>
+                            </div>
+                    </div>
+        </div>
+    </div>
+{/block}

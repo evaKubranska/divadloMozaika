@@ -1,0 +1,49 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+input.btn.btn-maroon.float-right.button {
+    color: white;
+    background-color: #cd4442;
+}
+
+.title-name {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+#frm-personalInfoForm{
+    margin-top: 40px;
+}
+.label-text {
+    text-align: right;
+    color: white;
+}
+
+.btn {
+    margin-top: 10px;
+}
+.row.row-personal-info{
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1118px) {
+    .row.row-personal-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .col-form-label.label-text {
+        max-width: 38%;
+        text-align: left;
+    }
+}

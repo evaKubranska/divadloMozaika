@@ -1,0 +1,49 @@
+{extends 'layoutDefault.latte'}
+{block searchNavHomepage}{/block}
+{block content}
+    <div class="main-detail">
+        <div class="container-detail">
+            <div n:block="title" class = "content-header">Informácie o rezervácii</div>
+            <div class="contetnt-body">
+                <table class="table-sm table-detail">
+                    <tbody>
+                    <tr>
+                        <td>Dátum od: </td>
+                        <td>{$timeFrom}</td>
+                    </tr>
+                    <tr>
+                        <td>Dátum do: </td>
+                        <td>{$timeTo}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class ="h5 lab font-weight-bold"> Informácie o sále</td>
+                    </tr>
+                    <tr>
+                        <td>Názov sály: </td>
+                        <td>{$detail->name}</td>
+                    </tr>
+                    <tr>
+                        <td>Typ sály: </td>
+                        <td>{$detail->hallType}</td>
+                    </tr>
+                    <tr>
+                        <td>Kapacita: </td>
+                        <td>{$detail->capacity}</td>
+                    </tr>
+                    <tr>
+                        <td> Popis: </td>
+                        <td>{$detail->description}</td>
+                    </tr>
+                    <tr>
+                        <td> Cena za prenájom: </td>
+                        <td>{$price} €</td>
+                    </tbody>
+                </table>
+                    <div class="d-flex flex-row justify-content-between my-flex-container">
+                        <a id="btn-back" type="button" type="button" class="btn" href="{plink :HallReservation:default}">Späť</a>
+                        <a class="btn" id="btn-maroon" type="button" n:href="select!,  idHall=>$detail->idHall, timeFrom => $timeFrom, timeTo => $timeTo, price => $price ">Rezervovať sálu</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+{/block}

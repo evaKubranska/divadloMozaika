@@ -1,0 +1,21 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    {control topBar}
+        <div class="container" id="program-list">
+            <div class="row">
+                {foreach $res as $show}
+                    <div class="col col-item">
+                        <figure class="image-fig">
+                            <a n:href="detail!,  id=>$show->idShow">
+                              <img class="figure-image" src="../customImages/{$show->play->image}" alt="{$show->play->name}">
+                            </a>
+                            <figcaption class="list-items">
+                                <span class="playName">{$show->play->name}</span>
+                                <span class="playTime">Hráme : {$show->timeFrom->format("d M Y, H:i")}</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+{/block}

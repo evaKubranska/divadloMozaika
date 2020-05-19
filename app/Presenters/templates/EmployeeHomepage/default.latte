@@ -1,0 +1,39 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <a href="{plink :RentRequests:default}">
+    <div class="rent-info">
+            <span>Počet nevybavených žiadostí o prenájom sály :  {$rentCount}</span>
+    </div>
+    </a>
+    <div class="container" id="program-list">
+    <div class="row">
+        {foreach $shows as $res}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card" id="program-item">
+                        <img class="card-img-top" src="../customImages/{$res->play->image}" alt="{$res->play->name}" style="width:100%">
+                    <div class="card-body" id="info-content">
+                        <span class="playName">{$res->play->name}</span>
+                        <span class="playAuthor">{$res->play->author}</span>
+                        <span class="playTime">Hráme : {$res->timeFrom->format("d M Y, H:i")}</span>
+                        <div class="ticket-span">
+                            <span class="ticket-count">Počet rezervovaných lístkov :
+                               {if isset($countReserveTickets) && (array_key_exists($res->idShow, $countReserveTickets))}
+                                   {$countReserveTickets[$res->idShow]}
+                               {else}
+                                   0
+                               {/if}
+                            </span>
+                             <span class="ticket-count">Počet zakúpených lístkov :
+                               {if isset($countBuyTickets) && (array_key_exists($res->idShow, $countBuyTickets))}
+                                    {$countBuyTickets[$res->idShow]}
+                               {else}
+                                   0
+                               {/if}
+                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    </div>
+{/block}

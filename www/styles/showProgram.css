@@ -1,0 +1,136 @@
+.card-opacity {
+    opacity: 0.6;
+}
+
+#played {
+    top: 14em;
+    color: #fff;
+    display: block;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background-color: #A00;
+    /* box-shadow: inset 0px 0px 8px 2px rgba(102,22,22,1); */
+ /*   opacity: 0.8; */
+    padding: 0.5em 5em 0.4em 5em;
+    /* box-shadow: 0 0 0.5em rgba(0,0,0,0.5); */
+    font: bold 16px/1.2em Arial, Sans-Serif;
+    width: 100%;
+    font-size: 21px;
+    border-radius: 6px;
+    -webkit-text-shadow: 0 0 0.75em #444;
+    /* -webkit-box-shadow: 0 0 0.5em rgba(0,0,0,0.5); */
+    z-index: 10;
+}
+
+.program-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: lightgrey;
+    font-size: 2.5rem;
+}
+
+#filter {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0;
+    position: relative;
+    width: 85%;
+}
+
+@media only screen and (max-width: 930px) {
+    #filter {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #filter a {
+        border-radius: 0;
+        width: 15%;
+        margin-bottom: 1px;
+    }
+
+}
+
+.row.row-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+    .row-item {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .col-sm-4.column-item {
+        width: 50%;
+    }
+}
+
+
+#program-list {
+    margin-top: 40px;
+}
+
+#btn-maroon{
+    color: white;
+    background-color: #cd4442;
+}
+
+#btn-maroon-buy {
+    color: white;
+    background-color: #cd4442;
+}
+
+#btn-detail {
+    background-color: grey;
+    color: white;
+}
+
+.my-flex-item {
+    margin-top: 12px;
+}
+
+.my-flex-container {
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+}
+
+.second {
+    background-color: grey;
+    color: white;
+}
+
+#program-item{
+    display: block;
+    margin-top: 20px;
+    background-color: #88b7ba5c;
+    -webkit-box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+    box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+}
+
+.playName {
+    display: block;
+    font-size: 24px;
+    color: white;
+}
+
+.playAuthor {
+    display: block;
+    font-size: 16px;
+    color: #c7caca;
+}
+
+.playTime {
+    display: block;
+    color: #c7caca;
+}
+

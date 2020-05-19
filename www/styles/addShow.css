@@ -1,0 +1,138 @@
+#frm-addShowForm{
+    margin-top: 40px;
+    width: 82%;
+    margin-left: 27px;
+}
+
+.main-content-header{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.main-detail {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.container-detail {
+    border-radius: 6px;
+    background-color: #425960;
+    display: block;
+    width: 525px;
+    min-height: 250px;
+    margin: 0 auto;
+    box-shadow: 0px 1px 20px 1px rgba(42, 40, 40, 0.36);
+}
+
+.content-header{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.content-body {
+    padding-bottom: 7px;
+}
+
+.header-tittle {
+    font-size: 24px;
+}
+
+
+.table-detail {
+    table-layout: fixed;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 90%;
+    border: 0;
+    color:whitesmoke;
+}
+
+.table-detail td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+}
+.table-detail tr {
+    border: 0;
+}
+
+.table-detail tbody {
+    color:whitesmoke;
+}
+
+.lab{
+    width:5%;
+}
+.my-flex-container {
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#btn-maroon {
+    color: white;
+    background-color: #cd4442;
+    margin-right: 40px;
+    height: 65%;
+}
+
+#btn-back {
+    margin-left: 40px;
+    background-color: #202c34a3;
+    color: white;
+    height: 65%;
+}
+
+.h5{
+    margin-left: 10px;
+}
+input.btn.btn-maroon.float-right.button {
+    color: white;
+    background-color: #cd4442;
+}
+
+.row-pair-info {
+    padding-bottom: 7px;
+}
+
+.btn {
+    margin-top: 20px;
+ /*   width: 20%;
+    height: 84%;*/
+}
+
+.label-text {
+    text-align: left;
+    color: white;
+}
+
+.select-option {
+    color: white;
+}
+
+@media only screen and (max-width: 1070px) {
+    .row-pair-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .col-form-label.label-text {
+        max-width: 50%;
+        text-align: left;
+    }
+}

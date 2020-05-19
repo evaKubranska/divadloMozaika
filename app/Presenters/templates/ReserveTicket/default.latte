@@ -1,0 +1,91 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <script>
+        function selectMapItem(element) {
+            const selected = $(element).attr('data-selected');
+            $(element).attr('data-selected', selected === "false" ? "true" : "false");
+            $(element).toggleClass('map-item-selected');
+            calculateMap();
+        }
+
+        function calculateMap() {
+            let totalSum = 0.0;
+            let count = 0;
+            $('[data-selected="true"]').each(
+                function (index, item) {
+                    console.log(item);
+                    totalSum += parseFloat($(item).attr('data-price'));
+                    count++;
+                }
+
+            );
+            $("#totalCount").text(count+' ks');
+            $("#totalSum").text(Math.round(totalSum * 100) / 100+' €');
+        }
+
+        function buyTicket(element) {
+            let ticketsId = [];
+            $('[data-selected="true"]').each(
+                function (index, item) {
+                    ticketsId.push($(item).attr('data-id'));
+                }
+            );
+            $.nette.ajax({
+                url: $(element).attr('data-link'),
+                type: 'POST',
+                data: {'ticketsId' : JSON.stringify(ticketsId)},
+            });
+        }
+
+    </script>
+    <div class="title" id="title">
+        <span n:block="title" class="name">{$show->play->name}</span><br>
+        <span class="author">Autor: {$show->play->author}</span>
+    </div>
+    {if !empty($tickets)}
+        <div class="info-container">
+            <div class="map-content">
+                <div class="map">
+                    {var $row = $tickets[0]?->seat->row}
+                    <div class="row">
+                        {foreach $tickets as $ticket}
+                        {if $row !== $ticket->seat->row}
+                            <span style="width: 0; visibility: hidden;">{$row =  $ticket->seat->row}</span>
+                            </div>
+                            <div class="row">
+                        {/if}
+                        {if array_key_exists($ticket->idTicket, $reserveTicket)}
+                            <div class="map-item" data-selected="false" data-price="{$ticket->price}" data-id="{$ticket->idTicket}" onclick="selectMapItem(this)">
+                                {$ticket->seat->row}/{$ticket->seat->column}
+                            </div>
+                        {else}
+                            <div class="map-reserved">
+                                {$ticket->seat->row}/{$ticket->seat->column}
+                            </div>
+                        {/if}
+                    {/foreach}
+                    </div>
+                </div>
+            </div>
+            <div class="info-content">
+                <div class="seat-type">
+                    <div class="row row-legend">
+                        <span>Legenda:</span>
+                    </div>
+                    <div class="row row-legend">
+                        <div class="free-seat"></div><span id="free">voľný</span>
+                    </div>
+                    <div class="row row-legend">
+                        <div class="reserve-seat"></div><span id="reserved">rezervovaný</span>
+                    </div>
+                </div>
+                <p class="item-count">Počet lístkov: <span id="totalCount"></span></p>
+                <p>Celková suma: <span id="totalSum"></span></p>
+            </div>
+        </div>
+        <button data-link="{link Save!}" id="btn-buy" class="btn" onclick="buyTicket(this)">Rezervovať lístok</button>
+    {else}
+        <div class="alert alert-warning" role="alert">K predstaveniu neexistujú žiadne voľné lístky</div>
+    {/if}
+
+{/block}

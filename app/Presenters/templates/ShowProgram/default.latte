@@ -1,0 +1,56 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <script>
+        $(function() {
+            $( ".card" ).each(function() {
+                const date = new Date($(this).attr('data-date')).getTime();
+                if (date <= $.now()) {
+                    $(this).toggleClass('card-opacity');
+                    $(this).find("#played").css('visibility', 'visible');
+                    $(this).find('a').click(function (e) {
+                        e.preventDefault();
+                    });
+                }
+            });
+        });
+    </script>
+    {control topBar}
+    <div n:block="title" class="program-header">Program</div>
+        {snippet programTable}
+        <div class="btn-group" id="filter" role="group">
+            {foreach $months as $key => $value}
+                {if $key === $month}
+                    <a type="button" id="btn-maroon" class="btn ajax" n:href="select!,  month=>$key">{$value}</a>
+                {else}
+                    <a type="button" class="btn btn-secondary ajax" n:href="select!,  month=>$key">{$value}</a>
+                {/if}
+            {/foreach}
+        </div>
+            <div class="container" id="program-list">
+                {if count($result) !== 0}
+                <div class="row row-item">
+                     {foreach $result as $res}
+                            <div class="col-sm-12 col-md-6 col-lg-4 column-item">
+                                <div class="card" id="program-item"  data-opacity="false" data-date="{$res->timeFrom}">
+                                    <a n:href="detail!,  id=>$res->idShow" target="_blank">
+                                        <img class="card-img-top" src="../customImages/{$res->play->image}" alt="{$res->play->name}" style="width:100%">
+                                    </a>
+                                    <span id="played" style="visibility:hidden;">ODOHRANÉ</span>
+                                        <div class="card-body" id="info-content">
+                                            <span class="playName">{$res->play->name}</span>
+                                            <span class="playAuthor">{$res->play->author}</span>
+                                            <span class="playTime">Hráme : {$res->timeFrom->format("d M Y, H:i")}</span>
+                                            <div class="d-flex flex-row justify-content-between my-flex-container">
+                                                <div class="p my-flex-item"><a type="button" id="btn-detail" class="btn  btn-secondary"  n:href="detail!,  id=>$res->idShow">Zobraziť detail</a></div>
+                                                <div class="p my-flex-item"><a type="button" id="btn-maroon-buy" class=btn btn-secondary"  n:href="buy!,  id=>$res->idShow">Kúpiť lístok</a></div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        {/foreach}
+                {else}
+                    <div class="alert alert-warning" role="alert">Vyhľadávacím kritériám nezodpovedajú žiadne výsledky</div>
+                {/if}
+            </div>
+    {/snippet}
+{/block}

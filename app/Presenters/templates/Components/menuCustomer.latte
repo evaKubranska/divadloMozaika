@@ -1,0 +1,16 @@
+<div class="customMenu">
+    <div class="customMenu-logo"><a href="{plink :CustomerHomepage:default}">DIVADLO MOZAIKA</a></div>
+    <div class="customMenu-list">
+        <ul class="customMenu-list-links">
+            <li  n:class="$presenter->isLinkCurrent('ShowProgram:default') || $presenter->isLinkCurrent('SearchPlayResults:default') || $presenter->isLinkCurrent('ShowDetail:default') || $presenter->isLinkCurrent('ReserveTicket:default') || $presenter->isLinkCurrent('TicketPersonalInfo:default')  ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :ShowProgram:default}">Program</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('HallReservation:default') || $presenter->isLinkCurrent('RentLeaseDetail:default') || $presenter->isLinkCurrent('RentPersonalInfo:default')    ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :HallReservation:default}">Prenájom sály</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('AboutUs:default') ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :AboutUs:default}">O nás</a>
+            </li>
+        </ul>
+    </div>
+</div>

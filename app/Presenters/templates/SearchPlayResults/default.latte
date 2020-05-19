@@ -1,0 +1,32 @@
+{extends 'layoutDefault.latte'}
+{block searchNavHomepage}{/block}
+{block content}
+    {control topBar}
+    <div n:block="title" style="visibility: hidden">Vyhľadávanie</div>
+    <div class="container" id="program-list">
+    {if count($result) !== 0}
+    <div class="row row-item">
+        {foreach $result as $res}
+            <div class="col-sm-12 col-md-6 col-lg-4 column-item">
+                <div class="card" id="program-item"  data-opacity="false" data-date="{$res->timeFrom}">
+                    <a n:href="detail!,  id=>$res->idShow" target="_blank">
+                        <img class="card-img-top" src="../customImages/{$res->play->image}" alt="{$res->play->name}" style="width:100%">
+                    </a>
+                    <span id="played" style="visibility:hidden;">ODOHRANÉ</span>
+                    <div class="card-body" id="info-content">
+                        <span class="playName">{$res->play->name}</span>
+                        <span class="playAuthor">{$res->play->author}</span>
+                        <span class="playTime">Hráme : {$res->timeFrom->format("d M Y, H:i")}</span>
+                        <div class="d-flex flex-row justify-content-between my-flex-container">
+                            <div class="p my-flex-item"><a type="button" id="btn-detail" class="btn  btn-secondary"  n:href="detail!,  id=>$res->idShow">Zobraziť detail</a></div>
+                            <div class="p my-flex-item"><a type="button" id="btn-maroon-buy" class=btn btn-secondary"  n:href="buy!,  id=>$res->idShow">Kúpiť lístok</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+        {else}
+        <div class="alert alert-warning" role="alert">Vyhľadávacím kritériám nezodpovedajú žiadne výsledky</div>
+        {/if}
+    </div>
+{/block}

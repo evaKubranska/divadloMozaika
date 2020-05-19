@@ -1,0 +1,121 @@
+.title {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+.name {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+.author {
+    font-size: 24px;
+    color: #c6c6c6;
+}
+
+.map-item{
+    width: 45px;
+    height: 45px;
+    background-color: #fa7d7d;
+    -webkit-box-shadow: inset 25px -25px 29px 22px rgba(212,0,0,0.57);
+    box-shadow: inset 25px -25px 29px 22px rgba(212,0,0,0.57);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 5px;
+    font-size: small;
+}
+
+.map-reserved {
+    width: 45px;
+    height: 45px;
+    background-color: #a8aba7;
+    -webkit-box-shadow: inset 25px -25px 29px 22px rgba(30, 24, 36, 0.57);
+    box-shadow: inset 25px -25px 29px 22px rgba(96, 90, 97, 0.57);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 5px;
+    font-size: small;
+}
+
+#btn-buy {
+    margin-top: 30px;
+    color: white;
+    background-color: #8e0000;
+    margin-bottom: 15px;
+
+}
+
+.map-content {
+    display: flex;
+    width: 150%;
+}
+
+.map {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.map-item-selected {
+    background-color: #340000;
+    color: whitesmoke;
+}
+.info-container {
+    display: flex;
+    align-items: center;
+}
+
+.info-content {
+    width: 50%;
+    padding-left: 40px;
+    color: white;
+}
+
+.free-seat{
+    width: 15px;
+    height: 15px;
+    background-color: #fa7d7d;
+    -webkit-box-shadow: inset 25px -25px 29px 22px rgba(212,0,0,0.57);
+    box-shadow: inset 25px -25px 29px 22px rgba(212,0,0,0.57);
+    display: inline-block;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.reserve-seat {
+    width: 15px;
+    height: 15px;
+    background-color: #a8aba7;
+    -webkit-box-shadow: inset 25px -25px 29px 22px rgba(30, 24, 36, 0.57);
+    box-shadow: inset 25px -25px 29px 22px rgba(96, 90, 97, 0.57);
+    display: inline-block;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.item-count{
+    margin-top: 30px;
+}
+.row-legend {
+    padding-left: 15px;
+}
+
+@media only screen and (max-width: 1330px) {
+    .map-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: initial;
+        horiz-align: left;
+    }
+    .map .row {
+        flex-wrap: wrap;
+    }
+}

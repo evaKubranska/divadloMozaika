@@ -1,0 +1,81 @@
+.rent-info {
+    display: block;
+    margin-top: 70px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    background-color: #88b7ba5c;
+    -webkit-box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+    box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+    color: white;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.program-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: lightgrey;
+    font-size: 2.5rem;
+}
+
+#filter {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0;
+    position: relative;
+    width: 85%;
+}
+
+#program-list {
+    margin-top: 40px;
+}
+
+#btn-detail {
+    background-color: grey;
+    color: white;
+}
+
+.my-flex-item {
+    margin-top: 12px;
+}
+
+.second {
+    background-color: grey;
+    color: white;
+}
+
+#program-item{
+    display: block;
+    margin-top: 20px;
+    background-color: #88b7ba5c;
+    -webkit-box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+    box-shadow: 13px 13px 24px 0px rgba(0,0,0,0.54);
+}
+
+.playName {
+    display: block;
+    font-size: 24px;
+    color: white;
+}
+
+.playAuthor {
+    display: block;
+    font-size: 16px;
+    color: #c7caca;
+}
+
+.playTime {
+    display: block;
+    color: #c7caca;
+}
+
+.ticket-count {
+    display: block;
+    color: #c7caca;
+}
+.ticket-span {
+    padding-top: 10px;
+}

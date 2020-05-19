@@ -1,0 +1,47 @@
+    table{
+        width:100%;
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    h1 {
+        font-size: 26px;
+        border-bottom: 5px solid lightgrey;
+
+    }
+    h1.small {
+        font-size: 16px;
+        margin-bottom : 10px;
+        margin-top:100px;
+    }
+.table-borderless {
+    margin-top: 30px;
+    margin-left: 10px;
+    line-height: 80%;
+}
+
+.border-table{
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+        margin-left: 10px;
+        margin-top: 20px;
+        box-sizing: border-box;
+  }
+
+  .border-table td, .border-table th {
+      border: 1px solid #dee2e6;
+  }
+
+.table-info {
+    background: rgb(217,217,217);
+ }
+.table thead th {
+background-color:rgb(217,217,217);
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.bold {
+    font-weight: bold;
+}

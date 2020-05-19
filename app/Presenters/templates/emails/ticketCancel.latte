@@ -1,0 +1,22 @@
+<h1 class="h1">Storno lístka<br></h1>
+<small class="small">Číslo lístka: {$bookedTicket->idBookedTicket}</small>
+<div class="first-table">
+            <table class="table-borderless">
+                <tr>
+                    <td class="bold">Dátum stornovania: </td>
+                    <td>{$cancelDate}</td>
+                </tr>
+                <tr>
+                    <td class="bold">Dátum rezervovania: </td>
+                    <td>{$bookedTicket->createDate}</td>
+                </tr>
+                <tr>
+                    <td class="bold">Počet lístkov: </td>
+                    <td>{count($bookedTicket->ticket)}</td>
+                </tr>
+                <tr>
+                    <td class="bold">Celková vrátená suma: </td>
+                    <td>{$bookedTicket->totalSum} €</td>
+                </tr>
+            </table>
+</div>

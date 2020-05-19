@@ -1,0 +1,31 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    {control topBar}
+        <div class="container" id="container-detail">
+            <div class="row" id="detail">
+               <div class="column col-image">
+                    <img class="img" id="image-detail" src="../customImages/{$show->play->image}" alt="{$show->play->name}">
+                </div>
+                <div class="column col-tittle">
+                    <div  id="title">
+                        <p n:block="title" class="tittle-show">{$show->play->name}</p>
+                        <span class="author-show">{$show->play->author}</span>
+                    </div>
+                    <p class="text">
+                        <span class="playTime">Hráme : {$show->timeFrom->format("d M Y, H:i")}</span><br>
+                        <span class="playDuration">Dĺžka trvania : {$show->play->duration} min.</span><br>
+                        <span class="showType badge">{$show->showType}</span>
+                    </p>
+                    <div class="p my-flex-item">
+                        <a type="button" id="btn-maroon" class="btn"  n:href="buy!,  id=>$show->idShow">Kúpiť lístok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column col-description">
+                    <p class="description">O inscenácii:</p>
+                    <span class="description-text">{$show->play->description}</span>
+                </div>
+            </div>
+        </div>
+{/block}

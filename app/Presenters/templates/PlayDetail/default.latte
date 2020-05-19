@@ -1,0 +1,73 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <div class="container" id="container-detail">
+        <div class="row" id="detail">
+            <div class="column col-image">
+                <img class="img" id="image-detail"  src="../customImages/{$playDetail->image}" alt="{$playDetail->name}">
+            </div>
+            <div class="column col-tittle">
+                <div  id="title">
+                    <p n:block="title" class="tittle-show">{$playDetail->name}</p>
+                    <span class="author-show">{$playDetail->author}</span>
+                </div>
+                <p class="text">
+                    <span class="playDuration">Dĺžka trvania : {$playDetail->duration} min.</span><br>
+                    <a type="button" class="btn" id="btn-maroon" n:href="Mod!,  id=>$playDetail->idPlay">Úprava inscenácie</a>
+                </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column col-description">
+                    <p class="description">O inscenácii:</p>
+                    <span class="description-text">{$playDetail->description}</span>
+                </div>
+             </div>
+        <div class="show-header">Zoznam predstavení</div>
+         {ifset $answear}
+             <div class="alert alert-warning" role="alert">{$answear}</div>
+         {elseifset $showResponse}
+            <table class="table" id="result-table">
+                <thead class="table-info" id="result-head">
+                    <tr>
+                        <th scope="col">Čas od </th>
+                        <th scope="col">Čas do</th>
+                        <th scope="col">Typ predstavenia</th>
+                        <th scope="col">Sála</th>
+                        <th scope="col">Kapacita</th>
+                        <th scope="col">Zmaž</th>
+                    </tr>
+                    </thead>
+                    <tbody id="result-body">
+                    {foreach $showResponse as $show}
+                        <tr class="result-row">
+                            <td>{$show->timeFrom}</td>
+                            <td>{$show->timeTo}</td>
+                            <td>{$show->showType->getValue()}</td>
+                            <td>{$show->hall->name}</td>
+                            <td>{$show->hall->capacity}</td>
+                            <td><button class="btn btn-link" id="delete-link" data-href="{plink delete!,  id=>$show->idShow, usage=>$show->idUsage}"><i id="trash" class="fas fa-trash"></i></button></td>
+                        </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
+        {/ifset}
+    </div>
+    <script>
+       $(".btn-link").on("click", function (event) {
+           const url = $(this).data("href");
+            Swal.fire({
+                title: "Chcete vymazať predstavenie ?",
+                type: 'warning',
+                showCancelButton: true,
+                cancelButtonColor: '#6c757d',
+                confirmButtonColor: '#cd4442',
+                cancelButtonText: "Nie",
+                confirmButtonText: "Áno"
+            }).then((result) => {
+                if (result.value) {
+                    window.location.replace(url);
+                }
+            })
+        });
+    </script>
+{/block}

@@ -1,0 +1,23 @@
+<div class="customMenu">
+    <div class="customMenu-logo"><a href="{plink :EmployeeHomepage:default}">DIVADLO MOZAIKA</a></div>
+    <div class="customMenu-list">
+        <ul class="customMenu-list-links">
+            <li  n:class="$presenter->isLinkCurrent('SearchTicket:default') || $presenter->isLinkCurrent('TicketDetail:default') ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :SearchTicket:default}">Správa lístkov</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('AddPlay:default') ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :AddPlay:default}">Nová inscenácia</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('SearchPlay:default') || $presenter->isLinkCurrent('PlayDetail:default') || $presenter->isLinkCurrent('ModifyPlay:default')?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :SearchPlay:default}">Správa inscenácií</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('RentRequests:default') || $presenter->isLinkCurrent('RentRequestDetail:default') ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :RentRequests:default}">Žiadosti o prenájom</a>
+            </li>
+            <li  n:class="$presenter->isLinkCurrent('SearchHallForPlay:default') || $presenter->isLinkCurrent('AddShow:default') ?  customMenu-list-links-item-active : customMenu-list-links-item">
+                <a href="{plink :SearchHallForPlay:default}">Nové predstavenie</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

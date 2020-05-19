@@ -1,0 +1,36 @@
+{extends 'layoutDefault.latte'}
+{block content}
+    <div n:block="title" class="content-header">Žiadosti o prenájom sály</div>
+            <div class="container">
+                {if !empty($rent)}
+                <div class="table-container">
+                    <table class="table table" id="result-table">
+                        <thead class="table-info" id="result-head">
+                        <tr>
+                            <th scope="col">Názov</th>
+                            <th scope="col">Čas od </th>
+                            <th scope="col">Čas do</th>
+                            <th scope="col">Typ sály</th>
+                            <th scope="col">Kapacita</th>
+                            <th class="select" scope="col">Výber</th>
+                        </tr>
+                        </thead>
+                        <tbody id="result-body">
+                            {foreach $rent as $res}
+                                <tr class="result-row">
+                                    <td>{$res->hall->name}</td>
+                                    <td>{$res->timeFrom}</td>
+                                    <td>{$res->timeTo}</td>
+                                    <td>{$res->hall->hallType}</td>
+                                    <td>{$res->hall->capacity}</td>
+                                    <td class="icon-center"><a n:href="select!, idRent => $res->idRent"><i class="fas fa-check"></i></a></td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+                {else}
+                    <div class="alert alert-warning" role="alert">Momentálne neexistujú žiadne žiadosti</div>
+                {/if}
+            </div>
+{/block}

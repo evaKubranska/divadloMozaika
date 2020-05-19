@@ -1,0 +1,23 @@
+{extends 'layoutDefault.latte'}
+{block content}
+<div class="content">
+    <div class="content-card">
+        <div class="content-card-header">
+            <span class="content-card-header-text">Prihlásenie</span>
+        </div>
+        <div class="content-card-roles">
+            <div class="content-card-roles-item">
+                <div class="content-card-roles-icon">
+                    <a class="content-card-roles-icon-link" href="{plink :EmployeeHomepage:default}"><i class="fas fa-user-tie fa-5x"></i></a>
+                </div>
+                <a href="{plink :EmployeeHomepage:default}"class="content-card-roles-item-text">Zamestnanec</a>
+            </div>
+            <div class="content-card-roles-item">
+                <div class="content-card-roles-icon">
+                    <a class="content-card-roles-icon-link" href="{plink :CustomerHomepage:default}"><i class="fas fa-user fa-5x"></i></a>
+                </div>
+                <a href="{plink :CustomerHomepage:default}" class="content-card-roles-item-text">Zákazník</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+.about-header {
+    background-image: url('../customImages/aboutUS.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.header {
+    align-self: center;
+    text-align: center;
+    font-size: 32px;
+    color: whitesmoke;
+    padding-top: 40px;
+    padding-bottom: 70px;
+   /* font-family: 'Mountains of Christmas', cursive;*/
+}
+
+.center-content{
+    width: 400px;
+    display: flex;
+}
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main-head {
+    align-self: center;
+    text-align: center;
+    font-size: 70px;
+    color: whitesmoke;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.text {
+    font-size: 16px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.tittle {
+    padding-bottom: 20px;
+    padding-top: 24px;
+    color: white;
+    font-size: 24px;
+}
+
+.item-first {
+    text-align: center;
+    display: inline-block;
+    background-color: #2C3C46;
+    opacity: 0.8;
+    border-radius: 6px;
+    width: 500px;
+    max-height: fit-content;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.item-second {
+    display: inline-block;
+    text-align: center;
+    background-color: #2C3C46;
+    opacity: 0.8;
+    border-radius: 6px;
+    width: 500px;
+    max-height: fit-content;
+    float: right;
+    margin-bottom: 10px;
+}

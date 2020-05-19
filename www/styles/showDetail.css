@@ -1,0 +1,67 @@
+#detail {
+    height: auto;
+    display: flex;
+    margin-top: 35px;
+}
+
+
+#image-detail {
+    width: 90%;
+    height: auto;
+}
+
+.col-tittle {
+    color: white;
+}
+
+
+#btn-maroon{
+    color: white;
+    background-color: #cd4442;
+    margin-top: 20px;
+    width: 60%;
+}
+
+#container-detail{
+    margin-bottom: 35px;
+}
+
+.showType.badge  {
+    font-size: 16px;
+    margin-top: 15px;
+    background-color: #d00b0d;
+}
+
+.tittle-show {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.text {
+    padding-top: 15px;
+}
+
+.playDuration {
+    padding-top: 15px;
+
+}
+
+.author-show {
+    font-size: 24px;
+}
+
+.col-description {
+    padding-top: 20px;
+}
+
+.description {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.description-text {
+    text-align: justify;
+    color: white;
+}
+

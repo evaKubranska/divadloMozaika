@@ -1,0 +1,96 @@
+.content-header{
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.col-form-label {
+    text-align: right;
+}
+
+.row-center {
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1070px) {
+    .form-row.row-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .col-form-label.label-text {
+        max-width: 50%;
+        text-align: left;
+    }
+}
+
+.row-submit {
+    justify-content: center;
+    align-self: center;
+}
+
+#btnMaroon {
+    color: white;
+    background-color: #cd4442;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: inherit;
+    height: 50%;
+}
+
+#search-form {
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.label-text {
+    color: #c6c6c6;
+}
+.table-container {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+#result-body tr.result-row:hover td {
+    background-color: #cd4442;
+}
+
+#result-table {
+    -webkit-box-shadow: 11px 11px 19px 5px rgba(0,0,0,0.45);
+    box-shadow: 11px 11px 19px 5px rgba(0,0,0,0.45);
+    color:  whitesmoke;
+    background-color: #f6f7f759;
+
+}
+
+#result-head {
+    color:  whitesmoke;
+    background-color: #6b0303c7;
+}
+#result-table td, #result-table th, #result-table tr {
+    border: 1px solid #202c34;
+}
+
+.bootstrap-datetimepicker-widget table td.today:before {
+    content: '';
+    display: inline-block;
+    border: solid transparent;
+    border-width: 0 0 7px 7px;
+    border-bottom-color: #cd4442 !important;
+    border-top-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 4px;
+    right: 4px; }
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+    background-color: #cd4442 !important;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }
+
+.bootstrap-datetimepicker-widget table td span.active {
+    background-color: #cd4442 !important;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }

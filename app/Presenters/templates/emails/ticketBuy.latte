@@ -1,0 +1,59 @@
+ <h1 class="h1">Vstupenka<br>
+        <small class="small">Číslo lístka: {$bookedTicket->idBookedTicket}</small>
+ </h1>
+ <div class="first-table">
+    <table class="table-borderless">
+            <tr>
+                <td class="bold">Dátum rezervovania: </td>
+                <td>{$bookedTicket->createDate}</td>
+            </tr>
+            <tr>
+                <td class="bold">Počet lístkov: </td>
+                <td>{count($bookedTicket->ticket)}</td>
+            </tr>
+            <tr>
+                <td class="bold">Celková suma: </td>
+                <td>{$bookedTicket->totalSum} €</td>
+            </tr>
+            {foreach $bookedTicket->ticket as $item}
+                 {if $iterator->first}
+                    <tr>
+                        <td class="bold">Inscenácia: </td>
+                        <td>{$item->show->play->name}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Hrané: </td>
+                        <td>{$item->show->timeFrom->format("d M Y, H:i")}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Trvanie: </td>
+                        <td>{$item->show->play->duration} min.</td>
+                    </tr>
+    </table>
+    </div>
+                {/if}
+    <br>
+    <table class="border-table">
+        <thead class="table-info" style="background-color:  rgb(217,217,217);">
+        <tr>
+            <th class="bold" colspan="2">Lístok č.{$iterator->counter}</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>Číslo sedadla: </td>
+            <td>{$item->seat->column}</td>
+        </tr>
+        <tr>
+            <td>Rad: </td>
+            <td>{$item->seat->row}</td>
+        </tr>
+        <tr>
+            <td>Kategória: </td>
+            <td>{$item->seat->seatType}</td>
+        </tr>
+        <tr>
+            <td>Cena: </td>
+            <td>{$item->price} €</td>
+        </tr>
+</table>
+{/foreach}

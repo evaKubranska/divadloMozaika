@@ -1,0 +1,27 @@
+<nav id="nav-top" class="navbar navbar-expand">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form n:name=searchShowForm class="form-inline mx-auto" id="searchFrom">
+            <div id="dateSearch" class="form-row  justify-content-center">
+                <div class="form-group col col-sm-8 input-group" id="datepicker" data-target-input="nearest">
+                    <input type="text" autocomplete="off" id="dateFrom" class="form-control datetimepicker-input" data-target="#datepicker" n:name=dateFrom />
+                    <div class="input-group-append" data-target="#datepicker" data-toggle="datetimepicker">
+                        <div class="input-group-text dateTimeIcon"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <input n:name=name class="form-control" type="text" placeholder="Hľadať" aria-label="Hľadať">
+                <button id="submitButton"  n:name=submit class="btn second" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<script>
+    $(function () {
+        $('#datepicker').datetimepicker({
+            format: 'DD.MM.YYYY',
+            minDate: moment()
+        });
+    });
+</script>

@@ -1,0 +1,138 @@
+html {
+    font-family: 'Noto Sans TC', sans-serif;
+    height: 100% ;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: rgb(32,44,52);
+    background: linear-gradient(45deg, rgba(32,44,52,1) 54%, rgba(53,72,84,1) 97%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Noto Sans TC', sans-serif !important;
+}
+
+.main-content {
+    margin-left: 240px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 100%;
+}
+
+.customMenu {
+    width: 230px;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    border-right: 2px solid #2b363e;
+}
+
+.customMenu-logo {
+    font-family: 'Pacifico', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53px;
+    color: white;
+    font-size: 21px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.customMenu-list-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.customMenu-list-links-item , .customMenu-list-links-item-active  {
+    padding-left: 40px;
+    color: #c6c6c6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: 17px;
+    text-decoration: none;
+
+}
+
+.customMenu-list-links-item, a {
+    color: #c6c6c6;
+    text-decoration: none;
+}
+
+.customMenu-list-links-item, a:hover {
+    color: #c6c6c6;
+    text-decoration: none;
+}
+
+.customMenu-list-links-item-active {
+    border-left: 3px solid #cd4442;
+    background-color: #2C3C46;
+    padding-left: 38px;
+}
+.customMenu-list-links-item-active, a {
+    color: #c6c6c6;
+    text-decoration: none;
+}
+
+
+.customMenu-list-links-item:hover {
+    border-left: 3px solid #cd4442;
+    background-color: #2C3C46;
+    padding-left: 38px;
+}
+
+#nav-top {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.dateTimeIcon {
+    height: 38px;
+}
+
+#submitButton {
+    border-radius: 50%;
+    margin-left: 10px;
+    color: white;
+    background-color: #cd4442;
+    box-shadow: 0px 0px 5px 4px rgba(32,44,52,0.47);
+}
+
+@media only screen and (min-width: 625px) and  (max-width: 930px)  {
+    #searchFrom {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        horiz-align: left;
+    }
+    #dateSearch {
+        margin-bottom: 2px;
+        width: 115%;
+        margin-left: -60px;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    #searchFrom {
+        flex-direction: column;
+    }
+    #dateSearch {
+        margin-bottom: 2px;
+        width: 90%;
+    }
+    #submitButton {
+        margin-top: 4px;
+        position: relative;
+        top: 50%;
+        left: 30%;
+    }
+}

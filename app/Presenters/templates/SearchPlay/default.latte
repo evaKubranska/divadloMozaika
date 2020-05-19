@@ -1,0 +1,31 @@
+{extends 'layoutDefault.latte'}
+{block content}
+     <div n:block="title" class="content-header" >Vyhľadanie inscenácie</div>
+      {control searchPlayForm}
+         <div class="container">
+            {if !empty($response)}
+                <table class="table table" id="result-table">
+                    <thead class="table-info" id="result-head">
+                    <tr>
+                        <th scope="col">Názov</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Trvanie</th>
+                        <th scope="col">Výber</th>
+                    </tr>
+                    </thead>
+                    <tbody id="result-body">
+                    {foreach $response as $res}
+                        <tr class="result-row">
+                            <th>{$res->name}</th>
+                            <th>{$res->author}</th>
+                            <th>{$res->duration}</th>
+                            <th><a class="icon-center" n:href="select!,  id=>$res->idPlay"><i class="fas fa-check"></i></a></th>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            {elseif isset($response)}
+                <div class="alert alert-warning" role="alert">Vyhľadávacím kritériám nezodpovedajú žiadne výsledky</div>
+            {/if}
+            </div>
+{/block}

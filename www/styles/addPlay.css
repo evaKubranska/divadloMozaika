@@ -1,0 +1,50 @@
+#frm-addPlayForm{
+    margin-top: 40px;
+}
+
+.file-label {
+    color:white;
+}
+
+.content-header{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+input.btn.btn-maroon.float-right.button {
+    color: white;
+    background-color: #cd4442;
+}
+
+.row-pair-info {
+    padding-bottom: 7px;
+}
+
+.btn {
+    margin-top: 10px;
+ /*   width: 20%;*/
+    height: 84%;
+}
+
+.label-text {
+    text-align: left;
+    color: white;
+}
+
+@media only screen and (max-width: 985px) {
+    .row-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .col-sx-12.col-sm-2.col-form-label.label-text {
+        max-width: 50%;
+        text-align: left;
+        margin-top: -15px;
+    }
+}
